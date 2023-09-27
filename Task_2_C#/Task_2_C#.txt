@@ -1,0 +1,140 @@
+1)Verilmish ededin 2 quvveti olub olmadigini tapan alqoritm
+(Meselen 8 , 4, 16 ve s. 2-nin quvvetidir amma 12  2-nin quvveti deyil) C# 
+
+
+Console.Write("Bir eded daxil edin: ");
+int eded = int.Parse(Console.ReadLine());
+
+bool quvvetiki = (eded > 0) && ((eded & (eded - 1)) == 0);
+
+if (quvvetiki)
+{
+    Console.WriteLine(" 2 quvveti dir.", eded);
+}
+else
+{
+    Console.WriteLine(" 2 quvveti deyil.", eded);
+}
+
+ 
+---------------------------------------------------------------------------------------------------
+
+
+2.) Aşağıda qeyd olunub:
+1-dən N-ə qədər ədədlər arasında neçə digit rəqəmi var?
+N-i biz daxil edirik.
+digit-i biz daxil edirik.
+
+
+Console.WriteLine("N-i daxil edin: ");
+int N = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Digit-i daxil edin: ");
+int digit = int.Parse(Console.ReadLine());
+
+int deyisen = 0;
+
+for (int i = 1; i <= N; i++)
+{
+    int num = i;
+    while (num > 0)
+    {
+        int lDigit = num % 10;
+        if (lDigit == digit)
+        {
+            deyisen++;
+        }
+        num =num / 10;
+    }
+}
+
+Console.WriteLine($"1-den {N}-e qeder olan ededler arasında {digit} reqemi {deyisen} defe var.");
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Aşağıda qeyd olunub:
+Ədədin mükəmməl olub-olmamasını yoxlayan proqram yazın. Əgər mükəmməldirsə ekrana true, əks halda false çıxsın.
+Mükəmməl ədəd nəyə deyilir?
+Ədədin bölənləri cəmi (özündən başqa) ədədin özünə bərabərdirsə, ədəd mükəmməl ədəddir.
+
+Console.Write("Bir eded girin: ");
+int sayi = int.Parse(Console.ReadLine());
+
+
+bool mukemmel = IsMukemmelSayi(sayi);
+
+Console.WriteLine("{0} mükemmel bir ededdir? {1}", sayi, mukemmel);
+    
+
+    static bool IsMukemmelSayi(int sayi)
+{
+    int toplam = 0;
+
+    for (int i = 1; i < sayi; i++)
+    {
+        if (sayi % i == 0)
+        {
+            toplam += i;
+        }
+    }
+
+    return toplam == sayi;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6 (Optional). Aşağıda qeyd olunmuş patterni console-a çıxaran proqram yazın. Aşağı kənarın uzunluğunu N olsun.
+N-i biz daxil edirik.
+
+Console.Write("N-i daxil edin: ");
+int N = int.Parse(Console.ReadLine());
+
+for (int i = 1; i <= N; i++)
+{
+    for (int j = 1; j <= i; j++)
+    {
+        Console.Write("*");
+    }
+    Console.WriteLine();
+}
